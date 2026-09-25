@@ -14,3 +14,13 @@ def display_missions(missions):
         print(f"{number}. {mission['name']}")
         print(f"Год запуска: {mission['year']}")
         print(f"Направление: {mission['direction']}")
+
+
+def find_missions_by_direction(direction):
+    """Вернуть миссии по направлению без учёта регистра."""
+    normalized_direction = direction.strip().casefold()
+    return [
+        mission
+        for mission in MISSIONS
+        if mission["direction"].casefold() == normalized_direction
+    ]
