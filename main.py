@@ -1,5 +1,3 @@
-"""Точка входа в консольный каталог космических миссий."""
-
 from missions import MISSIONS, display_missions, find_missions_by_direction
 
 
