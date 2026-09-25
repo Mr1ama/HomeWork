@@ -7,6 +7,7 @@ def main():
     print("=== Каталог космических миссий ===")
     display_missions(MISSIONS)
 
+
     direction = input("\nВведите направление для поиска: ")
     results = find_missions_by_direction(direction)
 
