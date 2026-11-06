@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
@@ -7,7 +7,7 @@ app = FastAPI()
 class GameCreate(BaseModel):
     title: str
     genre: str
-    players: int
+    players: int = Field(gt=0)
 
 
 class Game(BaseModel):
@@ -41,7 +41,7 @@ def get_games():
 @app.post("/games", response_model=Game, status_code=201)
 def create_game(game: GameCreate):
     new_game = game.model_dump()
-    new_game["id"] = len(games) + 1
+    new_game["id"] = max((saved_game["id"] for saved_game in games), default=0) + 1
     games.append(new_game)
     return new_game
 
@@ -64,4 +64,3 @@ def delete_game(game_id: int):
             deleted_game = games.pop(index)
             return deleted_game
     raise HTTPException(status_code=404, detail="Игра не найдена")
-\n
