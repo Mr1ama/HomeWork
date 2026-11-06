@@ -64,3 +64,4 @@ def delete_game(game_id: int):
             deleted_game = games.pop(index)
             return deleted_game
     raise HTTPException(status_code=404, detail="Игра не найдена")
+\n
