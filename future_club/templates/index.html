@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Клуб будущего</title>
+</head>
+<body>
+    <h1>Панель мероприятий клуба будущего</h1>
+    <p>Выберите интересное занятие и запишитесь в клубе.</p>
+
+    <table border="1">
+        <tr>
+            <th>№</th>
+            <th>Мероприятие</th>
+            <th>Направление</th>
+            <th>Свободные места</th>
+            <th>Статус</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <td>{{ event["id"] }}</td>
+            <td>{{ event["title"] }}</td>
+            <td>{{ event["direction"] }}</td>
+            <td>{{ event["seats"] }}</td>
+            <td>{{ event["status"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
