@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новое мероприятие</title>
+</head>
+<body>
+    <h1>Добавление мероприятия</h1>
+
+    <form method="post">
+        <p>
+            <label>
+                Название:<br>
+                <input type="text" name="title" required>
+            </label>
+        </p>
+        <p>
+            <label>
+                Свободные места:<br>
+                <input type="number" name="seats" min="0" required>
+            </label>
+        </p>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <p>
+        <a href="/">Вернуться к списку</a>
+    </p>
+</body>
+</html>
